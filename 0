@@ -1,0 +1,22 @@
+// Проверить, чётное ли число и оканчивается ли оно на 7.
+
+string Number;
+
+// Ввод числа:
+Console.WriteLine("Введите целое число:");
+Number = Console.ReadLine();
+
+// Проверка на чётность:
+float iNumber = Convert.ToSingle(Number);
+if (iNumber % 2 == 0)
+{ Console.WriteLine("Число чётное."); }
+else
+{ Console.WriteLine("Число нечётное."); }
+
+// Проверка последней цифры:
+string lNumber = Number.Substring(Number.Length - 1);
+int ilNumber = Convert.ToInt32(lNumber);
+if (ilNumber == 7)
+{ Console.WriteLine("Число заканчивается на 7"); }
+else
+{ Console.WriteLine("Число не заканчивается на 7"); }
