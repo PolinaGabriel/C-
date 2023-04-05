@@ -1,0 +1,66 @@
+// Написать программу вычисления координат траектории полёта снаряда, движущегося в поле притяжения Земли от координат нахождения пушки до его падения на землю.
+// Рассчитать координаты наивысшей точки траектории снаряда.
+
+// Ввод данных и округление до сотых:
+Console.WriteLine("Вычисление координат траектории полёта снаряда (координаты x, y), движущегося в поле притяжения Земли от координат нахождения пушки до его падения на землю (y=0).");
+Console.WriteLine("Исходные данные:");
+Console.WriteLine("- координаты пушки x0, y0;");
+Console.WriteLine("- начальная скорость снаряда V0;");
+Console.WriteLine("- угол вылета снаряда из пушки в градусах a;)");
+Console.WriteLine("Введите x0");
+double x0 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+Console.WriteLine("Введите y0");
+double y0 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+Console.WriteLine("Введите V0");
+double V0 = Math.Round(Convert.ToDouble(Console.ReadLine()), 2);
+Console.WriteLine("Введите a");
+double a = Math.Round(Convert.ToDouble(Console.ReadLine()) * 0.0174533, 2); // перевод градусов в радианы
+
+// Добавление других нужных переменных и постоянных:
+double y = 1; // участвует в условии цикла, поэтому должна быть задана до его описания
+double t = 0.01;
+double[] Abs = {};
+double[] Ord = {};
+double[] Time = {};
+const double g = 9.81;
+
+// Расчёт скорости изменения координат:
+double Vx0 = V0 * Math.Cos(a);
+double Vy0 = V0 * Math.Sin(a);
+
+// Расчёт координат:
+while (y > 0)
+{
+    y = Math.Round(y0 + Vy0 * t - (double)(g * Math.Pow(t, 2) / 2), 2);
+    double x = Math.Round(x0 + Vx0 * t, 2);
+    if (y > 0)
+    {
+        Abs = Abs.Append(x).ToArray();
+        Ord = Ord.Append(y).ToArray();
+        Time = Time.Append(t).ToArray();
+    }
+    t = Math.Round(t + 0.01, 2);
+}
+
+// Поиск наивысшей точки траектории снаряда:
+double max = 0;
+for (int i = 0; i < (Ord.Length - 1); i++)
+{ 
+    if (Ord[i] > max)
+    {
+        max = Ord[i];
+    }
+}
+
+// Вывыод таблицы:
+Console.WriteLine("t x y");
+Console.WriteLine(0 + " " + x0 + " " + y0);
+for (int i = 0; i < Time.Length; i++)
+{
+    Console.Write(Time[i] + " ");
+    Console.Write(Abs[i] + " ");
+    Console.Write(Ord[i] + " ");
+    Console.WriteLine();
+}
+Console.WriteLine();
+Console.WriteLine("Наивысшая точка траектории снаряда: " + max);
