@@ -1,0 +1,51 @@
+// Пользователь вводит дату рождения, программа сообщает его знак зодиака.
+
+int Day;
+int Month;
+
+// Ввод компонентов даты рождения, их перевод из строки в число:
+Console.WriteLine("Введите день своего рождения:");
+Day = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите месяц своего рождения:");
+Month = Convert.ToInt32(Console.ReadLine());
+
+// Определение знака зодиака по числу и месяцу рождения:
+
+if (Day >= 21 && Day <= 31 && Month == 3 || Day >= 1 && Day <= 20 && Month == 4)
+{ Console.WriteLine("Ваш знак зодиака - Овен."); }
+
+else if (Day >= 21 && Day <= 30 && Month == 4 || Day >= 1 && Day <= 20 && Month == 5)
+{ Console.WriteLine("Ваш знак зодиака - Телец."); }
+
+else if (Day >= 21 && Day <= 31 && Month == 5 || Day >= 1 && Day <= 20 && Month == 6)
+{ Console.WriteLine("Ваш знак зодиака - Близецы."); }
+
+else if (Day >= 21 && Day <= 30 && Month == 6 || Day >= 1 && Day <= 22 && Month == 7)
+{ Console.WriteLine("Ваш знак зодиака - Рак."); }
+
+else if (Day >= 23 && Day <= 31 && Month == 7 || Day >= 1 && Day <= 22 && Month == 8)
+{ Console.WriteLine("Ваш знак зодиака - Лев."); }
+
+else if (Day >= 23 && Day <= 31 && Month == 8 || Day >= 1 && Day <= 22 && Month == 9)
+{ Console.WriteLine("Ваш знак зодиака - Дева."); }
+
+else if (Day >= 23 && Day <= 30 && Month == 9 || Day >= 1 && Day <= 22 && Month == 10)
+{ Console.WriteLine("Ваш знак зодиака - Весы."); }
+
+else if (Day >= 23 && Day <= 31 && Month == 10 || Day >= 1 && Day <= 22 && Month == 11)
+{ Console.WriteLine("Ваш знак зодиака - Скорпион."); }
+
+else if (Day >= 23 && Day <= 30 && Month == 11 || Day >= 1 && Day <= 21 && Month == 12)
+{ Console.WriteLine("Ваш знак зодиака - Стрелец."); }
+
+else if (Day >= 22 && Day <= 31 && Month == 12 || Day >= 1 && Day <= 19 && Month == 1)
+{ Console.WriteLine("Ваш знак зодиака - Козерог."); }
+
+else if (Day >= 20 && Day <= 31 && Month == 1 || Day >= 1 && Day <= 19 && Month == 2)
+{ Console.WriteLine("Ваш знак зодиака - Водолей."); }
+
+else if (Day >= 20 && Day <= 28 && Month == 2 || Day >= 1 && Day <= 20 && Month == 3)
+{ Console.WriteLine("Ваш знак зодиака - Рыбы."); }
+
+else
+{ Console.WriteLine("Дата рождения введена неверно."); }
