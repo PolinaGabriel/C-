@@ -1,0 +1,129 @@
+// Определить, чей год по Китайскому календарю.
+
+// Ввод года:
+Console.WriteLine("Введите год:");
+string Year = Console.ReadLine();
+
+// Определение животного:
+int iYear = Convert.ToInt32(Year);
+int x = (iYear - 1) - (((iYear - 1) / 12) * 12);
+switch (x)
+{
+    case 0:
+        {
+            Console.WriteLine("Животное: петух");
+            break;
+        }
+    case 1:
+        {
+            Console.WriteLine("Животное: собака");
+            break;
+        }
+    case 2:
+        {
+            Console.WriteLine("Животное: кабан");
+            break;
+        }
+    case 3:
+        {
+            Console.WriteLine("Животное: крыса");
+            break;
+        }
+    case 4:
+        {
+            Console.WriteLine("Животное: бык");
+            break;
+        }
+    case 5:
+        {
+            Console.WriteLine("Животное: тигр");
+            break;
+        }
+    case 6:
+        {
+            Console.WriteLine("Животное: кролик (кот)");
+            break;
+        }
+    case 7:
+        {
+            Console.WriteLine("Животное: дракон");
+            break;
+        }
+    case 8:
+        {
+            Console.WriteLine("Животное: змея");
+            break;
+        }
+    case 9:
+        {
+            Console.WriteLine("Животное: лошадь");
+            break;
+        }
+    case 10:
+        {
+            Console.WriteLine("Животное: овца (коза)");
+            break;
+        }
+    case 11:
+        {
+            Console.WriteLine("Животное: обезьяна");
+            break;
+        }
+}
+
+// Определение цвета и стихии:
+string lYear = Year.Substring(Year.Length - 1);
+int ilYear = Convert.ToInt32(lYear);
+switch (ilYear)
+{ 
+    case 0:
+        {
+            Console.WriteLine("Стихия: металл (белый)");
+            break;
+        }
+    case 1:
+        {
+            Console.WriteLine("Стихия: металл (белый)");
+            break;
+        }
+    case 2:
+        {
+            Console.WriteLine("Стихия: вода (голубой)");
+            break;
+        }
+    case 3:
+        {
+            Console.WriteLine("Стихия: вода (голубой)");
+            break;
+        }
+    case 4:
+        {
+            Console.WriteLine("Стихия: дерево (зелёный)");
+            break;
+        }
+    case 5:
+        {
+            Console.WriteLine("Стихия: дерево (зелёный)");
+            break;
+        }
+    case 6:
+        {
+            Console.WriteLine("Стихия: огонь (красный)");
+            break;
+        }
+    case 7:
+        {
+            Console.WriteLine("Стихия: огонь (красный)");
+            break;
+        }
+    case 8:
+        {
+            Console.WriteLine("Стихия: земля (жёлтый)");
+            break;
+        }
+    case 9:
+        {
+            Console.WriteLine("Стихия: земля (жёлтый)");
+            break;
+        }
+}
