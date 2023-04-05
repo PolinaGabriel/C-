@@ -1,0 +1,215 @@
+// Перевод чисел из любой системы счисления в любую другую (от 2 до 16).
+
+// Ввод исходных параметров:
+Console.WriteLine("Из какой системы счисления Вы хотите переводить?");
+int Syst1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Какое число?");
+string Number = Console.ReadLine();
+Console.WriteLine("В какую систему счисления?");
+int Syst2 = Convert.ToInt32(Console.ReadLine());
+
+// При вводе одной и той же системы счисления два раза:
+if (Syst1 == Syst2)
+{
+    Console.WriteLine("Введены одинаковые основания систем счисления. Перевод невозможен.");
+}
+
+// Перевод из десятичной в любую:
+else if (Syst1 == 10)
+{
+    int N = Convert.ToInt32(Number);
+    string Result1 = ""; // "Место сборки" результата перевода
+    while (N >= Syst2)
+    {
+        string x = Convert.ToString(N % Syst2);
+        switch (x)
+        {
+            case "10":
+                {
+                    x = "A";
+                    break;
+                }
+            case "11":
+                {
+                    x = "B";
+                    break;
+                }
+            case "12":
+                {
+                    x = "C";
+                    break;
+                }
+            case "13":
+                {
+                    x = "D";
+                    break;
+                }
+            case "14":
+                {
+                    x = "E";
+                    break;
+                }
+            case "15":
+                {
+                    x = "F";
+                    break;
+                }
+        }
+        Result1 = x + Result1;
+        N = N / Syst2;
+    }
+    string Nr = Convert.ToString(N);
+    Result1 = Nr + Result1;
+    Console.WriteLine(Result1);
+}
+
+// Перевод из любой в десятичную:
+else if (Syst2 == 10)
+{
+    double Result2 = 0; // "Место сборки" результата перевода
+    int s = 0; // Счётчик для степеней основания системы счисления
+    while (Number.Length > 0)
+    {
+        string x0 = Number.Substring(Number.Length - 1, 1); // Выбор последней цифры
+        switch (x0)
+        {
+            case "A":
+                {
+                    x0 = "10";
+                    break;
+                }
+            case "B":
+                {
+                    x0 = "11";
+                    break;
+                }
+            case "C":
+                {
+                    x0 = "12";
+                    break;
+                }
+            case "D":
+                {
+                    x0 = "13";
+                    break;
+                }
+            case "E":
+                {
+                    x0 = "14";
+                    break;
+                }
+            case "F":
+                {
+                    x0 = "15";
+                    break;
+                }
+        }
+        int x = Convert.ToInt32(x0);
+        if (x != 0)
+        {
+            double b = x * Math.Pow(Syst1, s); // Основание исходной системы счисления в нужной степени
+            Result2 = Result2 + b;
+        }
+        Number = Number.Substring(0, Number.Length - 1);
+        s = s + 1;
+    }
+    Console.WriteLine(Result2);
+}
+
+// Перевод из любой в любую другую:
+else
+{
+    double Result2 = 0; // "Место сборки" результата перевода
+    int s = 0; // Счётчик для степеней основания системы счисления
+    while (Number.Length > 0)
+    {
+        string x0 = Number.Substring(Number.Length - 1, 1); // Выбор последней цифры
+        switch (x0)
+        {
+            case "A":
+                {
+                    x0 = "10";
+                    break;
+                }
+            case "B":
+                {
+                    x0 = "11";
+                    break;
+                }
+            case "C":
+                {
+                    x0 = "12";
+                    break;
+                }
+            case "D":
+                {
+                    x0 = "13";
+                    break;
+                }
+            case "E":
+                {
+                    x0 = "14";
+                    break;
+                }
+            case "F":
+                {
+                    x0 = "15";
+                    break;
+                }
+        }
+        int x = Convert.ToInt32(x0);
+        if (x != 0)
+        {
+            double b = x * Math.Pow(Syst1, s); // Основание исходной системы счисления в нужной степени
+            Result2 = Result2 + b;
+        }
+        Number = Number.Substring(0, Number.Length - 1);
+        s = s + 1;
+    }
+    string Result2s = Convert.ToString(Result2);
+    Number = Result2s;
+    int N = Convert.ToInt32(Number);
+    string Result1 = ""; // "Место сборки" результата перевода
+    while (N >= Syst2)
+    {
+        string x = Convert.ToString(N % Syst2);
+        switch (x)
+        {
+            case "10":
+                {
+                    x = "A";
+                    break;
+                }
+            case "11":
+                {
+                    x = "B";
+                    break;
+                }
+            case "12":
+                {
+                    x = "C";
+                    break;
+                }
+            case "13":
+                {
+                    x = "D";
+                    break;
+                }
+            case "14":
+                {
+                    x = "E";
+                    break;
+                }
+            case "15":
+                {
+                    x = "F";
+                    break;
+                }
+        }
+        Result1 = x + Result1;
+        N = N / Syst2;
+    }
+    string Nr = Convert.ToString(N);
+    Result1 = Nr + Result1;
+    Console.WriteLine(Result1);
+}
