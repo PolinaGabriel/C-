@@ -1,0 +1,14 @@
+// Напечатать в возрастающем порядке все трёхзначные числа, в десятичной записи которых нет одинаковых цифр.
+// Операции деления, целочисленного деления и определения остатка не использовать.
+
+for (int i = 100; i <= 999; i++)
+{
+    string Number = Convert.ToString(i);
+    string Number1 = Number.Substring(0, 1);
+    string Number2 = Number.Substring(1, 1);
+    string Number3 = Number.Substring(2, 1);
+    if (Number1 != Number2 && Number2 != Number3 && Number3 != Number1)
+    {
+        Console.WriteLine(i);
+    }
+}
