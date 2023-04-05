@@ -1,30 +1,26 @@
 // Дана последовательность 20-ти чисел из интервала от 0 до 66, представляющих собой условные обозначения костей домино (например, число 42 есть обозначение кости домино "4–2" или "2–4", число 33 — кости "3–3" и т. п.). Определить, соответствует ли последовательность чисел ряду костей домино, выложенному по правилам этой игры. Рассмотреть два случая:
 // a) последняя цифра каждого числа соответствует количеству точек на правой половине кости домино.
 
-string[] Domino = new string[20];
-Random Number = new Random();
-string x;
+string[] Domino = { };
 
-// Генерация "костяшек":
-for (int i = 0; i <= 19; i++)
+// Ввод "костяшек":
+
+Console.WriteLine("Введите значения костяшек. Чтобы закончить ввод, введите 'конец':");
+while (true)
 {
-    x = Convert.ToString(Number.Next(0, 66));
-    if (x.Length == 1)
+    string Element = Console.ReadLine();
+    if (Element != "конец")
     {
-        x = "0" + x;
+        Domino = Domino.Append(Element).ToArray();
     }
-    Domino[i] = x;
+    else
+    {
+        break;
+    }
 }
-
-// Вывод "костяшек":
-for (int i = 0; i <= 19; i++)
-{
-    Console.Write(Domino[i] + " ");
-}
-Console.WriteLine();
 
 // Проверка правильности расположения "костяшек":
-for (int i = 0; i <= 18; i++)
+for (int i = 0; i <= (Domino.Length - 2); i++)
 {
     int a = Convert.ToInt32(Domino[i].Substring(1, 1));
     int b = Convert.ToInt32(Domino[i + 1].Substring(0, 1));
