@@ -4,34 +4,49 @@
 string[] Domino = { };
 
 // Ввод "костяшек":
-
 Console.WriteLine("Введите значения костяшек. Чтобы закончить ввод, введите 'конец':");
 while (true)
 {
-    string Element = Console.ReadLine();
-    if (Element != "конец")
-    {
-        Domino = Domino.Append(Element).ToArray();
-    }
-    else
-    {
-        break;
-    }
+	string Element = Console.ReadLine();
+	if (Element != "конец")
+	{
+		Domino = Domino.Append(Element).ToArray();
+	}
+	else
+	{
+		break;
+	}
+}
+
+// Проверка корректности введения данных:
+int k = 0; // счётчик некорректных костяшек
+for (int i = 0; i <= (Domino.Length - 1); i++)
+{
+	int x = Convert.ToInt32(Domino[i].Substring(0, 1));
+	int y = Convert.ToInt32(Domino[i].Substring(1, 1));
+	if (x > 6 || y > 6)
+	{
+		Console.WriteLine("Значение " + (i + 1) + " введено некорректно");
+		k++;
+	}
 }
 
 // Проверка правильности расположения "костяшек":
-for (int i = 0; i <= (Domino.Length - 2); i++)
+if (k == 0)
 {
-    int a1 = Convert.ToInt32(Domino[i].Substring(0, 1));
-    int a2 = Convert.ToInt32(Domino[i].Substring(1, 1));
-    int b1 = Convert.ToInt32(Domino[i + 1].Substring(0, 1));
-    int b2 = Convert.ToInt32(Domino[i + 1].Substring(1, 1));
-    if (a1 == b1 || a1 == b2 || a2 == b1 || a2 == b2)
-    {
-        Console.WriteLine("Элементы пары " + (i + 1) + " могут соответствовать друг другу");
-    }
-    else
-    {
-        Console.WriteLine("Элементы пары " + (i + 1) + " не могут соответствовать друг другу");
-    }
+	for (int i = 0; i <= (Domino.Length - 2); i++)
+	{
+		int a1 = Convert.ToInt32(Domino[i].Substring(0, 1));
+		int a2 = Convert.ToInt32(Domino[i].Substring(1, 1));
+		int b1 = Convert.ToInt32(Domino[i + 1].Substring(0, 1));
+		int b2 = Convert.ToInt32(Domino[i + 1].Substring(1, 1));
+		if (a1 == b1 || a1 == b2 || a2 == b1 || a2 == b2)
+		{
+			Console.WriteLine("Элементы пары " + (i + 1) + " могут соответствовать друг другу");
+		}
+		else
+		{
+			Console.WriteLine("Элементы пары " + (i + 1) + " не могут соответствовать друг другу");
+		}
+	}
 }
