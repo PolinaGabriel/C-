@@ -1,0 +1,134 @@
+// Имеются данные о стоимости доллара по курсу Сбербанка по дням в течение месяца (массив заполняется случайными числами в диапазоне значений [10; 80]). 
+// Указать самый высокий и низкий курс доллара.
+// Реализовать обмен по самому выгодному курсу доллара с учётом введённой суммы для обмена.
+// Рассчитать средний курс доллара месяца и для каждого дня указать отклонение курса от этого среднего значения.
+// Вычислить количество дней, когда курс превышал среднемесячное значение.
+
+// Определение длины месяца:
+Console.Write("Месяц: ");
+string month = Console.ReadLine();
+double[] dollarMonth = {};
+switch (month)
+{
+    case "январь":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "февраль":
+        {
+            dollarMonth = new double[28];
+            break;
+        }
+    case "март":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "апрель":
+        {
+            dollarMonth = new double[30];
+            break;
+        }
+    case "май":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "июнь":
+        {
+            dollarMonth = new double[30];
+            break;
+        }
+    case "июль":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "август":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "сентябрь":
+        {
+            dollarMonth = new double[30];
+            break;
+        }
+    case "октябрь":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+    case "ноябрь":
+        {
+            dollarMonth = new double[30];
+            break;
+        }
+    case "декабрь":
+        {
+            dollarMonth = new double[31];
+            break;
+        }
+}
+
+// Генерация курса доллара (вероятно, зимбабвийского):
+Random Number = new Random();
+for (int i = 0; i <= (dollarMonth.Length - 1); i++)
+{
+    double x = Math.Round((Number.Next(10, 79) + Number.NextDouble()), 2);
+    dollarMonth[i] = x;
+}
+for (int i = 0; i <= (dollarMonth.Length - 1); i++)
+{
+    Console.WriteLine((i + 1) + ": " + dollarMonth[i]);
+}
+Console.WriteLine();
+
+// Поиск среднего значения курса доллара за месяц и отклонений от него, сколько дней курс превышал среднемесячное значение:
+double summ = 0;
+for (int i = 0; i <= dollarMonth.Length - 1; i++)
+{
+    summ += dollarMonth[i];
+}
+double mid = Math.Round((summ / dollarMonth.Length) + (summ % dollarMonth.Length), 2);
+Console.WriteLine("Среднее значение курса за " + month + ": " + mid);
+int above = 0;
+for (int i = 0; i <= dollarMonth.Length - 1; i++)
+{
+    double diff = Math.Round(dollarMonth[i] - mid, 2);
+    Console.WriteLine("Отклонение от среднего значения курса за " + (i + 1) + " число: " + diff);
+    if (diff > 0)
+    {
+        above++;
+    }
+}
+Console.WriteLine("За " + month + " курс превышал среднемесячное значение " + above + " дней");
+Console.WriteLine();
+
+// Поиск максимального и минимального значения курса доллара за месяц:
+double max = 10;
+for (int i = 0; i <= (dollarMonth.Length - 1); i++)
+{
+    if (dollarMonth[i] > max)
+    {
+        max = dollarMonth[i];
+    }
+}
+double min = 80;
+Console.WriteLine("Максимальный курс за " + month + ": " + max + " рублей");
+for (int i = 0; i <= (dollarMonth.Length - 1); i++)
+{
+    if (dollarMonth[i] < min)
+    {
+        min = dollarMonth[i];
+    }
+}
+Console.WriteLine("Минимальный курс за " + month + ": " + min + " рублей");
+Console.WriteLine();
+
+// Обмен по самому выгодному курсу:
+Console.WriteLine("Введите сумму (в рублях), которую желаете обменять: ");
+double rub = Convert.ToDouble(Console.ReadLine());
+double change = Math.Round((rub / min) + (rub % min), 2);
+Console.WriteLine("По самому выгодному курсу за " + month + " Вы получили бы " + change + " долларов");
