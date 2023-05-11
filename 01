@@ -1,13 +1,10 @@
-// Пользователь вводит дату рождения, программа сообщает его знак зодиака.
-
-int Day;
-int Month;
+// Пользователь вводит дату рождения, программа сообщает его знак зодиака (if).
 
 // Ввод компонентов даты рождения, их перевод из строки в число:
 Console.WriteLine("Введите день своего рождения:");
-Day = Convert.ToInt32(Console.ReadLine());
+int Day = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите месяц своего рождения:");
-Month = Convert.ToInt32(Console.ReadLine());
+int Month = Convert.ToInt32(Console.ReadLine());
 
 // Определение знака зодиака по числу и месяцу рождения:
 
