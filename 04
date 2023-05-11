@@ -12,465 +12,450 @@ string x = Price;
 
 switch (l)
 {
-    case 4:
-        {
-            x = "000" + Price;
-            break;
-        }
-    case 5:
-        {
-            x = "00" + Price;
-            break;
-        }
-    case 6:
-        {
-            x = "0" + Price;
-            break;
-        }
+	case 4:
+		{
+			x = "000" + Price;
+			break;
+		}
+	case 5:
+		{
+			x = "00" + Price;
+			break;
+		}
+	case 6:
+		{
+			x = "0" + Price;
+			break;
+		}
 }
 
 // Разделение цены на отдельные цифры (или числа, состоящие из десятков и единиц). Число представляется в виде abcd,ef:   
 
-string sa = x.Substring(0, 1);
-int a = Convert.ToInt32(sa);
-
-string sb = x.Substring(1, 1);
-int b = Convert.ToInt32(sb);
-
-string sc = x.Substring(2, 1);
-int c = Convert.ToInt32(sc);
-
-string scd = x.Substring(2, 2);
-int cd = Convert.ToInt32(scd);
-
-string sd = x.Substring(3, 1);
-int d = Convert.ToInt32(sd);
-
-string se = x.Substring(5, 1);
-int e = Convert.ToInt32(se);
-
-string sef = x.Substring(5, 2);
-int ef = Convert.ToInt32(sef);
-
-string sf = x.Substring(6, 1);
-int f = Convert.ToInt32(sf);
+int a = Convert.ToInt32(x.Substring(0, 1));
+int b = Convert.ToInt32(x.Substring(1, 1));
+int c = Convert.ToInt32(x.Substring(2, 1));
+int cd = Convert.ToInt32(x.Substring(2, 2));
+int d = Convert.ToInt32(x.Substring(3, 1));
+int e = Convert.ToInt32(x.Substring(5, 1));
+int ef = Convert.ToInt32(x.Substring(5, 2));
+int f = Convert.ToInt32(x.Substring(6, 1));
 
 // Обработка цифр и вывод цены:
 
 switch (a)
 {
-    case 1:
-        {
-           Console.Write("одна тысяча ");
-            break;
-        }
-    case 2:
-        {
-            Console.Write("две тысячи ");
-            break;
-        }
-    case 3:
-        {
-            Console.Write("три тысячи ");
-            break;
-        }
-    case 4:
-        {
-            Console.Write("четыре тысячи ");
-            break;
-        }
-    case 5:
-        {
-            Console.Write("пять тысяч ");
-            break;
-        }
-    case 6:
-        {
-            Console.Write("шесть тысяч ");
-            break;
-        }
-    case 7:
-        {
-            Console.Write("семь тысяч ");
-            break;
-        }
-    case 8:
-        {
-            Console.Write("восемь тысяч ");
-            break;
-        }
-    case 9:
-        {
-            Console.Write("девять тысяч ");
-            break;
-        }
+	case 1:
+		{
+			Console.Write("одна тысяча ");
+			break;
+		}
+	case 2:
+		{
+			Console.Write("две тысячи ");
+			break;
+		}
+	case 3:
+		{
+			Console.Write("три тысячи ");
+			break;
+		}
+	case 4:
+		{
+			Console.Write("четыре тысячи ");
+			break;
+		}
+	case 5:
+		{
+			Console.Write("пять тысяч ");
+			break;
+		}
+	case 6:
+		{
+			Console.Write("шесть тысяч ");
+			break;
+		}
+	case 7:
+		{
+			Console.Write("семь тысяч ");
+			break;
+		}
+	case 8:
+		{
+			Console.Write("восемь тысяч ");
+			break;
+		}
+	case 9:
+		{
+			Console.Write("девять тысяч ");
+			break;
+		}
 }
 
 switch (b)
 {
-    case 1:
-        {
-            Console.Write("сто ");
-            break;
-        }
-    case 2:
-        {
-            Console.Write("двести ");
-            break;
-        }
-    case 3:
-        {
-            Console.Write("триста ");
-            break;
-        }
-    case 4:
-        {
-            Console.Write("четыреста ");
-            break;
-        }
-    case 5:
-        {
-            Console.Write("пятьсот ");
-            break;
-        }
-    case 6:
-        {
-            Console.Write("шестьсот ");
-            break;
-        }
-    case 7:
-        {
-            Console.Write("семьсот ");
-            break;
-        }
-    case 8:
-        {
-            Console.Write("восемьсот ");
-            break;
-        }
-    case 9:
-        {
-            Console.Write("девятьсот ");
-            break;
-        }
+	case 1:
+		{
+			Console.Write("сто ");
+			break;
+		}
+	case 2:
+		{
+			Console.Write("двести ");
+			break;
+		}
+	case 3:
+		{
+			Console.Write("триста ");
+			break;
+		}
+	case 4:
+		{
+			Console.Write("четыреста ");
+			break;
+		}
+	case 5:
+		{
+			Console.Write("пятьсот ");
+			break;
+		}
+	case 6:
+		{
+			Console.Write("шестьсот ");
+			break;
+		}
+	case 7:
+		{
+			Console.Write("семьсот ");
+			break;
+		}
+	case 8:
+		{
+			Console.Write("восемьсот ");
+			break;
+		}
+	case 9:
+		{
+			Console.Write("девятьсот ");
+			break;
+		}
 }
 
 switch (c)
 {
-    case 1:
-        {
-            if (cd == 10)
-            { Console.Write("десять рублей "); }
-            else if (c == 1)
-            {
-                switch (cd)
-                {
-                    case 11:
-                        {
-                            Console.Write("одиннадцать рублей ");
-                            break;
-                        }
-                    case 12:
-                        {
-                            Console.Write("двенадцать рублей ");
-                            break;
-                        }
-                    case 13:
-                        {
-                            Console.Write("тринадцать рублей ");
-                            break;
-                        }
-                    case 14:
-                        {
-                            Console.Write("четырнадцать рублей ");
-                            break;
-                        }
-                    case 15:
-                        {
-                            Console.Write("пятнадцать рублей ");
-                            break;
-                        }
-                    case 16:
-                        {
-                            Console.Write("шестнадцать рублей ");
-                            break;
-                        }
-                    case 17:
-                        {
-                            Console.Write("семнадцать рублей ");
-                            break;
-                        }
-                    case 18:
-                        {
-                            Console.Write("восемнадцать рублей ");
-                            break;
-                        }
-                    case 19:
-                        {
-                            Console.Write("девятнадцать рублей ");
-                            break;
-                        }
-                }
-            }
-            break;
-        }
-    case 2:
-        {
-            Console.Write("двадцать ");
-            break;
-        }
-    case 3:
-        {
-            Console.Write("тридцать ");
-            break;
-        }
-    case 4:
-        {
-            Console.Write("сорок ");
-            break;
-        }
-    case 5:
-        {
-            Console.Write("пятьдесят ");
-            break;
-        }
-    case 6:
-        {
-            Console.Write("шестьдесят ");
-            break;
-        }
-    case 7:
-        {
-            Console.Write("семдесят ");
-            break;
-        }
-    case 8:
-        {
-            Console.Write("восемдесят ");
-            break;
-        }
-    case 9:
-        {
-            Console.Write("девятносто ");
-            break;
-        }
-   
+	case 1:
+		{
+			if (cd == 10)
+			{ Console.Write("десять рублей "); }
+			else if (c == 1)
+			{
+				switch (cd)
+				{
+					case 11:
+						{
+							Console.Write("одиннадцать рублей ");
+							break;
+						}
+					case 12:
+						{
+							Console.Write("двенадцать рублей ");
+							break;
+						}
+					case 13:
+						{
+							Console.Write("тринадцать рублей ");
+							break;
+						}
+					case 14:
+						{
+							Console.Write("четырнадцать рублей ");
+							break;
+						}
+					case 15:
+						{
+							Console.Write("пятнадцать рублей ");
+							break;
+						}
+					case 16:
+						{
+							Console.Write("шестнадцать рублей ");
+							break;
+						}
+					case 17:
+						{
+							Console.Write("семнадцать рублей ");
+							break;
+						}
+					case 18:
+						{
+							Console.Write("восемнадцать рублей ");
+							break;
+						}
+					case 19:
+						{
+							Console.Write("девятнадцать рублей ");
+							break;
+						}
+				}
+			}
+			break;
+		}
+	case 2:
+		{
+			Console.Write("двадцать ");
+			break;
+		}
+	case 3:
+		{
+			Console.Write("тридцать ");
+			break;
+		}
+	case 4:
+		{
+			Console.Write("сорок ");
+			break;
+		}
+	case 5:
+		{
+			Console.Write("пятьдесят ");
+			break;
+		}
+	case 6:
+		{
+			Console.Write("шестьдесят ");
+			break;
+		}
+	case 7:
+		{
+			Console.Write("семдесят ");
+			break;
+		}
+	case 8:
+		{
+			Console.Write("восемдесят ");
+			break;
+		}
+	case 9:
+		{
+			Console.Write("девятносто ");
+			break;
+		}
+
 }
 
 if (c != 1)
 {
-    switch (d)
-    {
-        case 0:
-            {
-                Console.Write("рублей ");
-                break;
-            }
-        case 1:
-            {
-                Console.Write("один рубль ");
-                break;
-            }
-        case 2:
-            {
-                Console.Write("два рубля ");
-                break;
-            }
-        case 3:
-            {
-                Console.Write("три рубля ");
-                break;
-            }
-        case 4:
-            {
-                Console.Write("четыре рубля ");
-                break;
-            }
-        case 5:
-            {
-                Console.Write("пять рублей ");
-                break;
-            }
-        case 6:
-            {
-                Console.Write("шесть рублей ");
-                break;
-            }
-        case 7:
-            {
-                Console.Write("семь рублей ");
-                break;
-            }
-        case 8:
-            {
-                Console.Write("восемь рублей ");
-                break;
-            }
-        case 9:
-            {
-                Console.Write("девять рублей ");
-                break;
-            }
+	switch (d)
+	{
+		case 0:
+			{
+				Console.Write("рублей ");
+				break;
+			}
+		case 1:
+			{
+				Console.Write("один рубль ");
+				break;
+			}
+		case 2:
+			{
+				Console.Write("два рубля ");
+				break;
+			}
+		case 3:
+			{
+				Console.Write("три рубля ");
+				break;
+			}
+		case 4:
+			{
+				Console.Write("четыре рубля ");
+				break;
+			}
+		case 5:
+			{
+				Console.Write("пять рублей ");
+				break;
+			}
+		case 6:
+			{
+				Console.Write("шесть рублей ");
+				break;
+			}
+		case 7:
+			{
+				Console.Write("семь рублей ");
+				break;
+			}
+		case 8:
+			{
+				Console.Write("восемь рублей ");
+				break;
+			}
+		case 9:
+			{
+				Console.Write("девять рублей ");
+				break;
+			}
 
-    }
+	}
 }
 
 switch (e)
 {
-    case 1:
-        {
-            if (ef == 10)
-                { Console.Write("десять "); }
-            else if (e == 1)
-            {
-                switch (ef)
-                {
-                    case 11:
-                        {
-                            Console.Write("одиннадцать копеек ");
-                            break;
-                        }
-                    case 12:
-                        {
-                            Console.Write("двенадцать копеек ");
-                            break;
-                        }
-                    case 13:
-                        {
-                            Console.Write("тринадцать копеек ");
-                            break;
-                        }
-                    case 14:
-                        {
-                            Console.Write("четырнадцать копеек ");
-                            break;
-                        }
-                    case 15:
-                        {
-                            Console.Write("пятнадцать копеек ");
-                            break;
-                        }
-                    case 16:
-                        {
-                            Console.Write("шестнадцать копеек ");
-                            break;
-                        }
-                    case 17:
-                        {
-                            Console.Write("семнадцать копеек ");
-                            break;
-                        }
-                    case 18:
-                        {
-                            Console.Write("восемнадцать копеек ");
-                            break;
-                        }
-                    case 19:
-                        {
-                            Console.Write("девятнадцать копеек ");
-                            break;
-                        }
-                }
-            }
-            break;
-        }
-    case 2:
-        {
-            Console.Write("двадцать ");
-            break;
-        }
-    case 3:
-        {
-            Console.Write("тридцать ");
-            break;
-        }
-    case 4:
-        {
-            Console.Write("сорок ");
-            break;
-        }
-    case 5:
-        {
-            Console.Write("пятьдесят ");
-            break;
-        }
-    case 6:
-        {
-            Console.Write("шестьдесят ");
-            break;
-        }
-    case 7:
-        {
-            Console.Write("семдесят ");
-            break;
-        }
-    case 8:
-        {
-            Console.Write("восемдесят ");
-            break;
-        }
-    case 9:
-        {
-            Console.Write("девятносто ");
-            break;
-        }
+	case 1:
+		{
+			if (ef == 10)
+			{ Console.Write("десять "); }
+			else if (e == 1)
+			{
+				switch (ef)
+				{
+					case 11:
+						{
+							Console.Write("одиннадцать копеек ");
+							break;
+						}
+					case 12:
+						{
+							Console.Write("двенадцать копеек ");
+							break;
+						}
+					case 13:
+						{
+							Console.Write("тринадцать копеек ");
+							break;
+						}
+					case 14:
+						{
+							Console.Write("четырнадцать копеек ");
+							break;
+						}
+					case 15:
+						{
+							Console.Write("пятнадцать копеек ");
+							break;
+						}
+					case 16:
+						{
+							Console.Write("шестнадцать копеек ");
+							break;
+						}
+					case 17:
+						{
+							Console.Write("семнадцать копеек ");
+							break;
+						}
+					case 18:
+						{
+							Console.Write("восемнадцать копеек ");
+							break;
+						}
+					case 19:
+						{
+							Console.Write("девятнадцать копеек ");
+							break;
+						}
+				}
+			}
+			break;
+		}
+	case 2:
+		{
+			Console.Write("двадцать ");
+			break;
+		}
+	case 3:
+		{
+			Console.Write("тридцать ");
+			break;
+		}
+	case 4:
+		{
+			Console.Write("сорок ");
+			break;
+		}
+	case 5:
+		{
+			Console.Write("пятьдесят ");
+			break;
+		}
+	case 6:
+		{
+			Console.Write("шестьдесят ");
+			break;
+		}
+	case 7:
+		{
+			Console.Write("семдесят ");
+			break;
+		}
+	case 8:
+		{
+			Console.Write("восемдесят ");
+			break;
+		}
+	case 9:
+		{
+			Console.Write("девятносто ");
+			break;
+		}
 
 }
 
 switch (f)
 {
-    case 0:
-        {
-            if (e == 0)
-            { Console.Write("ровно"); }
-            else
-            { Console.Write("копеек"); }
-            break;
-        }
-    case 1:
-        {
-            Console.Write("одна копейка");
-            break;
-        }
-    case 2:
-        {
-            Console.Write("две копейки");
-            break;
-        }
-    case 3:
-        {
-            Console.Write("три копейки");
-            break;
-        }
-    case 4:
-        {
-            Console.Write("четыре копейки");
-            break;
-        }
-    case 5:
-        {
-            Console.Write("пять копеек");
-            break;
-        }
-    case 6:
-        {
-            Console.Write("шесть копеек");
-            break;
-        }
-    case 7:
-        {
-            Console.Write("семь копеек");
-            break;
-        }
-    case 8:
-        {
-            Console.Write("восемь копеек");
-            break;
-        }
-    case 9:
-        {
-            Console.Write("девять копеек");
-            break;
-        }
+	case 0:
+		{
+			if (e == 0)
+			{ Console.Write("ровно"); }
+			else
+			{ Console.Write("копеек"); }
+			break;
+		}
+	case 1:
+		{
+			Console.Write("одна копейка");
+			break;
+		}
+	case 2:
+		{
+			Console.Write("две копейки");
+			break;
+		}
+	case 3:
+		{
+			Console.Write("три копейки");
+			break;
+		}
+	case 4:
+		{
+			Console.Write("четыре копейки");
+			break;
+		}
+	case 5:
+		{
+			Console.Write("пять копеек");
+			break;
+		}
+	case 6:
+		{
+			Console.Write("шесть копеек");
+			break;
+		}
+	case 7:
+		{
+			Console.Write("семь копеек");
+			break;
+		}
+	case 8:
+		{
+			Console.Write("восемь копеек");
+			break;
+		}
+	case 9:
+		{
+			Console.Write("девять копеек");
+			break;
+		}
 
 }
