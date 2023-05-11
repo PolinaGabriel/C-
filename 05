@@ -2,48 +2,42 @@
 
 // Ввод исходных параметров:
 Console.WriteLine("Из какой системы счисления Вы хотите переводить?");
-string Syst10 = Console.ReadLine();
+int Syst1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Какое число?");
 string Number = Console.ReadLine();
 Console.WriteLine("В какую систему счисления?");
-string Syst20 = Console.ReadLine();
-
-// Перевод оснований систем счисления в числовой тип:
-int Syst1 = Convert.ToInt32(Syst10);
-int Syst2 = Convert.ToInt32(Syst20);
+int Syst2 = Convert.ToInt32(Console.ReadLine());
 
 // Перевод из десятичной в двоичную:
 if (Syst1 == 10 && Syst2 == 2)
 {
-    int N = Convert.ToInt32(Number);
-    string Result1 = ""; // "Место сборки" результата перевода
-    while (N != 1)
-    {
-        int x0 = N % 2;
-        string x = Convert.ToString(x0);
-        Result1 = x + Result1;
-        N = N / 2;
-    }
-    Console.WriteLine(Number + " (" + Syst1 + ") = " + "1" + Result1 + " (" + Syst2 + ")"); // Первая цифра переведённого числа - частное, а не остаток, поэтому её дописываем вот здесь
+	int N = Convert.ToInt32(Number);
+	string Result = ""; // "Место сборки" результата перевода
+	while (N != 1)
+	{
+		string x = Convert.ToString(N % 2);
+		Result = x + Result;
+		N = N / 2;
+	}
+	Console.WriteLine(Number + " (" + Syst1 + ") = " + "1" + Result + " (" + Syst2 + ")"); // Первая цифра переведённого числа - частное, а не остаток, поэтому её дописываем вот здесь
 }
 
 // Перевод из двоичной в десятичную:
 if (Syst1 == 2 && Syst2 == 10)
 {
-    string Number0 = Number; // Number будет использоваться для вывода и должен оставаться неизменным
-    double Result2 = 0; // "Место сборки" результата перевода
-    int s = 0; // Счётчик для степеней двойки
-    while (Number0.Length > 0)
-    {
-        string x0 = Number0.Substring(Number0.Length-1, 1); // Выбор последней цифры
-        int x = Convert.ToInt32(x0);
-        if (x == 1)
-        {
-            double two = Math.Pow(2, s); // Двойка в нужной степени
-            Result2 = Result2 + two;
-        }
-        Number0 = Number0.Substring(0, Number0.Length - 1);
-        s = s + 1;
-    }
-    Console.WriteLine(Number + " (" + Syst1 + ") = " + Result2 + " (" + Syst2 + ")");
+	string Number0 = Number; // Number будет использоваться для вывода и должен оставаться неизменным
+	double Result = 0; // "Место сборки" результата перевода
+	int s = 0; // Счётчик для степеней двойки
+	while (Number0.Length > 0)
+	{
+		int x = Convert.ToInt32(Number0.Substring(Number0.Length - 1, 1)); // Выбор последней цифры
+		if (x == 1)
+		{
+			double two = Math.Pow(2, s); // Двойка в нужной степени
+			Result = Result + two;
+		}
+		Number0 = Number0.Substring(0, Number0.Length - 1);
+		s = s + 1;
+	}
+	Console.WriteLine(Number + " (" + Syst1 + ") = " + Result + " (" + Syst2 + ")");
 }
