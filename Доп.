@@ -1,0 +1,110 @@
+// Алгоритм, удаляющий из массива элемент с переносом всех элементов после удаляемого методом FIFO. Алгоритм повторяется, пока пользователю необходимо удалять элементы массива, и завершается, если такой надобности нет.
+
+// Ввод массивов:
+
+int[] Numbers1 = new int[5]; // первый массив, заполненный целыми числами, отличными от нуля
+Console.WriteLine("Введите 5 целых чисел (элементы массива):" );
+for (int i = 0; i<5;i++)
+{
+    Numbers1[i] = Convert.ToInt32(Console.ReadLine());
+}
+
+int[] Numbers2 = { 0, 0, 0, 0, 0 }; // второй массив, заполненный нулями
+
+Console.WriteLine();
+
+// Удаление элементов:
+
+Console.WriteLine("Вы хотите удалить какой-нибудь элемент?");
+string Answer1 = Console.ReadLine();
+
+switch (Answer1)
+{
+    case "да":
+        {
+			Console.WriteLine("Какой по счёту?");
+            int Answer2 = Convert.ToInt32(Console.ReadLine()) - 1;
+			Console.WriteLine();
+
+			for (int i = 0; i < (Numbers1.Length - (Answer2 + 1)); i++) // "обмен местами" элементов массивов
+            {
+                Numbers2[i] = Numbers1[Numbers1.Length - (i + 1)];
+                Numbers1[Numbers1.Length - (i + 1)] = 0;
+
+				for (int j = 0; j < Numbers1.Length; j++) // вывод каждого шага (первый массив)
+				{
+					Console.Write(Numbers1[j] + " ");
+				}
+
+				Console.WriteLine();
+
+				for (int j = 0; j < Numbers2.Length; j++) // вывод каждого шага (второй массив)
+				{
+					Console.Write(Numbers2[j] + " ");
+				}
+
+				Console.WriteLine();
+				Console.WriteLine();
+			}
+
+            Numbers1[Answer2] = 0; // "удаление" указанного элемента первого массива
+
+			for (int j = 0; j < Numbers1.Length; j++) // вывод первого массива
+			{
+				Console.Write(Numbers1[j] + " ");
+			}
+
+			Console.WriteLine();
+
+			for (int j = 0; j < Numbers2.Length; j++) // вывод второго массива
+			{
+				Console.Write(Numbers2[j] + " ");
+			}
+
+			Console.WriteLine();
+			Console.WriteLine();
+
+			for (int i = 0; i < (Numbers1.Length - (Answer2 + 1)); i++) // "возвращение на место" элементов первого массива
+            {
+                Numbers1[Numbers1.Length - (i + 2)] = Numbers2[i];
+				Numbers2[i] = 0;
+
+				for (int j = 0; j < Numbers1.Length; j++) // вывод каждого шага (первый массив)
+				{
+					Console.Write(Numbers1[j] + " ");
+				}
+
+				Console.WriteLine();
+
+				for (int j = 0; j < Numbers2.Length; j++) // вывод каждого шага (второй массив)
+				{
+					Console.Write(Numbers2[j] + " ");
+				}
+
+				Console.WriteLine();
+				Console.WriteLine();
+			}
+
+			Console.WriteLine("Хотите удалить ещё какой-нибудь элемент?");
+			string Answer3 = Console.ReadLine();
+
+            if (Answer3 == "да")
+            {
+                goto case "да";
+            }
+            else if (Answer3 == "нет")
+            {
+				goto case "нет";
+			}
+
+			break;
+        }
+
+    case "нет":
+        {
+            Console.WriteLine();
+			Console.Write("Ой, всё.");
+			Console.WriteLine();
+			break;
+        }
+}
