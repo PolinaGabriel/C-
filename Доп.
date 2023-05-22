@@ -66,8 +66,8 @@ switch (Answer1)
 
 			for (int i = 0; i < (Numbers1.Length - (Answer2 + 1)); i++) // "возвращение на место" элементов первого массива
             {
-                Numbers1[i + (Numbers1.Length - (Numbers1.Length - Answer2))] = Numbers2[Math.Abs(i - 3 + (Numbers1.Length - (Numbers1.Length - Answer2)))];
-				Numbers2[Math.Abs(i - 3 + (Numbers1.Length - (Numbers1.Length - Answer2)))] = 0;
+                Numbers1[i + (Numbers1.Length - (Numbers1.Length - Answer2))] = Numbers2[Math.Abs(i - (Numbers1.Length - 2) + (Numbers1.Length - (Numbers1.Length - Answer2)))];
+				Numbers2[Math.Abs(i - (Numbers1.Length - 2) + (Numbers1.Length - (Numbers1.Length - Answer2)))] = 0;
 
 				for (int j = 0; j < Numbers1.Length; j++) // вывод каждого шага (первый массив)
 				{
@@ -83,7 +83,7 @@ switch (Answer1)
 
 				Console.WriteLine();
 				Console.WriteLine();
-			}
+			} 
 
 			Console.WriteLine("Хотите удалить ещё какой-нибудь элемент?");
 			string Answer3 = Console.ReadLine();
