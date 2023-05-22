@@ -26,7 +26,22 @@ switch (Answer1)
             int Answer2 = Convert.ToInt32(Console.ReadLine()) - 1;
 			Console.WriteLine();
 
-			for (int i = 0; i < (Numbers1.Length - (Answer2 + 1)); i++) // "обмен местами" элементов массивов
+            for (int i = 0; i < Numbers1.Length; i++) // вывод изначального первого массива
+            {
+                Console.Write(Numbers1[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            for (int i = 0; i < Numbers2.Length; i++) // вывод изначального второго массива
+            {
+                Console.Write(Numbers2[i] + " ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            for (int i = 0; i < (Numbers1.Length - (Answer2 + 1)); i++) // "обмен местами" элементов массивов
             {
                 Numbers2[i] = Numbers1[Numbers1.Length - (i + 1)];
                 Numbers1[Numbers1.Length - (i + 1)] = 0;
@@ -83,9 +98,36 @@ switch (Answer1)
 
 				Console.WriteLine();
 				Console.WriteLine();
-			} 
+			}
 
-			Console.WriteLine("Хотите удалить ещё какой-нибудь элемент?");
+			int[] Numbers3 = new int[Numbers1.Length - 1]; // удаление последнего нуля из первого массива
+			for (int i = 0; i <= (Numbers1.Length - 2); i++)
+			{
+				Numbers3[i] = Numbers1[i];
+			}
+			Numbers1 = Numbers3;
+            for (int i = 0; i < Numbers1.Length; i++) // вывод укороченного первого массива
+            {
+                Console.Write(Numbers1[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            int[] Numbers4 = new int[Numbers2.Length - 1]; // удаление последнего нуля из второго массива
+            for (int i = 0; i <= (Numbers2.Length - 2); i++)
+            {
+                Numbers4[i] = Numbers2[i];
+            }
+            Numbers2 = Numbers4;
+            for (int j = 0; j < Numbers2.Length; j++) // вывод укороченного второго массива
+            {
+                Console.Write(Numbers2[j] + " ");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Хотите удалить ещё какой-нибудь элемент?");
 			string Answer3 = Console.ReadLine();
 
             if (Answer3 == "да")
